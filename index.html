@@ -13,67 +13,44 @@
             return choices[randomChoice];
         }
 
-
         function playRound(playerSelection, computerSelection) {
-            // lowercase both input
             playerSelection = playerSelection.toLowerCase();
             computerSelection = computerSelection.toLowerCase();
 
-            // case draw
             if (playerSelection === computerSelection) {
-                // return `Draw! Computer also chose ${computerSelection}`;
                 return `draw`;
             }
-            // case player 1 win
             if (playerSelection === "rock" && computerSelection == "scissors" 
                 || playerSelection === "paper" && computerSelection == "rock"
                 || playerSelection === "scissors" && computerSelection == "paper") {
-                // return `You Won! ${playerSelection} beats ${computerSelection}`;
                 return `win`;
             }
-
-            // case computer win
-            // return  `You Lose! ${playerSelection} beats ${computerSelection}`;
             return  `lose`;
         }
 
-        // const playerSelection = "rock";
-        // const computerSelection = getComputerChoice();
-        // console.log(playRound(playerSelection, computerSelection));
-
         function game() {
-            // init variables
             let playerPoints = 0;
             let computerPoints = 0;
             const numRound = 5;
 
-            // loop 5 times
             for (let i = 0; i < numRound; i++) {
-                // prompt user input
                 let playerSelection = prompt("Choice?");
-                // get computer input
                 let computerSelection = getComputerChoice();
-                // play round
                 let result = playRound(playerSelection, computerSelection);
 
-                // add point to winner if any
-                // player won
                 if (result === 'win') {
                     playerPoints++;
                     console.log(`You Won! ${playerSelection} beats ${computerSelection}`);
-                } 
-                // computer won
-                else if (result === 'lose') {
+                } else if (result === 'lose') {
                     computerPoints++;
                     console.log(`You Lose! ${computerSelection} beats ${playerSelection}`);
                 }
-                // draw
                 else {
                     console.log(`Draw! Computer also chose ${computerSelection}`);
                 }
                 console.log(`player:${playerPoints}, computer:${computerPoints}`);
             }
-            // higher points win
+            
             if (playerPoints > computerPoints) {
                 console.log("You won the game!");
             } else if (computerPoints > playerPoints) {
