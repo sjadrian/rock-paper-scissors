@@ -1,65 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
 </head>
-<body style="background-color: grey;">
-    <script>
-        function getComputerChoice() {
-            let choices = ["Rock", "Paper", "Scissors"];
-            let randomChoice = Math.floor(Math.random()*choices.length);
-            return choices[randomChoice];
-        }
 
-        function playRound(playerSelection, computerSelection) {
-            playerSelection = playerSelection.toLowerCase();
-            computerSelection = computerSelection.toLowerCase();
+<body>
+    <header>
+        <h1 class="title">
+            Rock Paper Scissors
+        </h1>
+    </header>
 
-            if (playerSelection === computerSelection) {
-                return `draw`;
-            }
-            if (playerSelection === "rock" && computerSelection == "scissors" 
-                || playerSelection === "paper" && computerSelection == "rock"
-                || playerSelection === "scissors" && computerSelection == "paper") {
-                return `win`;
-            }
-            return  `lose`;
-        }
+    <main>
+        <div class="result">
+            <h2>
+                Choose your weapon
+            </h2>
+        </div>
 
-        function game() {
-            let playerPoints = 0;
-            let computerPoints = 0;
-            const numRound = 5;
+        <div class="detail-result">
+            <h3>
+                First to score 5 points wins the game
+            </h3>
+        </div>
+        <div class="container">
+            <div class="card">
+                <div class="player-choice-image">
+                    ❔
+                </div>
+                <div class="player-score">
+                    Player: 0
+                </div>
+            </div>
 
-            for (let i = 0; i < numRound; i++) {
-                let playerSelection = prompt("Choice?");
-                let computerSelection = getComputerChoice();
-                let result = playRound(playerSelection, computerSelection);
+            <div class="card">
+                <div class="computer-choice-image">
+                    ❔
+                </div>
+                <div class="computer-score">
+                    Computer: 0
+                </div>
+            </div>
+        </div>
 
-                if (result === 'win') {
-                    playerPoints++;
-                    console.log(`You Won! ${playerSelection} beats ${computerSelection}`);
-                } else if (result === 'lose') {
-                    computerPoints++;
-                    console.log(`You Lose! ${computerSelection} beats ${playerSelection}`);
-                }
-                else {
-                    console.log(`Draw! Computer also chose ${computerSelection}`);
-                }
-                console.log(`player:${playerPoints}, computer:${computerPoints}`);
-            }
-            
-            if (playerPoints > computerPoints) {
-                console.log("You won the game!");
-            } else if (computerPoints > playerPoints) {
-                console.log("You lose the game!");
-            } else {
-                console.log("Draw vs computer!");
-            }
-        }
+        <div class="choices">
+            <div class="choice">
+                <div class="rock">
+                    ✊
+                </div>
+            </div>
 
-    </script>
+            <div class="choice">
+                <div class="paper">
+                    ✋
+                </div>
+            </div>
+
+            <div class="choice">
+                <div class="scissors">
+                    ✌
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="modal">
+            <div class="modal-header">
+                <div class="modal-title">
+                    Example Modal
+                </div>
+
+                <div class="close-button">
+                    &times;
+                </div>
+            </div>
+            <div class="modal-body">
+                Click X Button to play again!
+            </div>
+        </div>
+
+        <div id="overlay">
+
+        </div>
+    </main>
+
+    <footer>
+        Copyright © 2023 sadrian
+    </footer>
 </body>
+
 </html>
