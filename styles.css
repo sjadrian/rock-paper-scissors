@@ -1,0 +1,150 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: rgb(80, 63, 80);
+    color: white;
+    padding: 18px;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+h2 {
+    margin: 0;
+    margin-top: 20px;
+}
+
+h3 {
+    margin: 0;
+    margin-top: 12px;
+    margin-bottom: 20px;
+}
+
+.result {
+    font-size: 24px;
+    text-align: center;
+}
+
+.detail-result {
+    font-size: 22px;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    font-size: 18px;
+    justify-content: center;
+    align-items: center;
+    padding: 18px;
+}
+
+.card {
+    width: 200px;
+    text-align: center;
+    
+}
+
+.player-choice-image {
+    font-size: 128px;
+}
+
+.computer-choice-image {
+    font-size: 128px;
+}
+
+
+
+.choices {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.choice {
+    padding: 12px;
+    background-color: rgb(199, 198, 198);
+    font-size: 128px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+footer {
+    background-color: rgb(80, 63, 80);
+    color: white;
+    text-align: center;
+    padding: 18px;
+    font-size: 18px;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    border: 1px solid black;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: white;
+    width: 500px;
+    max-width: 80%;
+}
+
+.modal.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-header {
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+}
+
+.modal-header .modal-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.modal-header .close-button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.modal-body {
+    padding: 10px 15px;
+}
+
+#overlay {
+    position: fixed;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+}
+
+#overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
